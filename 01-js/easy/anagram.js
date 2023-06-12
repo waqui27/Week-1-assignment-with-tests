@@ -8,7 +8,26 @@
 */
 
 function isAnagram(str1, str2) {
-
+  str1 = str1.toLowerCase().replace(/\s/g, '');
+  str2 = str2.toLowerCase().replace(/\s/g, '');
+  if(str1.length === str2.length) {
+    for(a of str1) {
+      let found = false;
+      for (b of str2) {
+        if(a === b) {
+            found = true
+            break
+        } 
+      }
+      if(!found) {
+          return false
+      }
+    }
+    return true
+  } else {
+    return false
+  }
 }
 
+console.log(isAnagram("car", "rac"))
 module.exports = isAnagram;
